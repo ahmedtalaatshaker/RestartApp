@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    // MARK: - save in userDefaults if not exist
+    @AppStorage("onboarding") var isOnboardingViewActive = true
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack{
+            if isOnboardingViewActive {
+                OnBoardingView()
+            }else{
+                HomeView()
+            }
+        }
     }
 }
 
